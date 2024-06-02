@@ -14,8 +14,8 @@ var str= getBooks().map(book =>
     <td>${book.price}</td>
     <td>
         <button>read</button>
-        <button>update</button>
-        <button>delete</button>
+        <button onclick="onUpdateBook('${book.id}')">update</button>
+        <button onclick="onRemoveBook('${book.id}')">delete</button>
     </td>
 
 </tr>`)
@@ -23,3 +23,19 @@ var str= getBooks().map(book =>
 elTbody.innerHTML=str.join('')
 // console.log(elTbody.innerHTML)
 }
+
+
+function onRemoveBook(bookid){
+removeBook(bookid)
+render()
+
+}
+
+function onUpdateBook(bookid){
+    var nprice= prompt('what is the new price?')
+    updateprice(bookid,nprice)
+    render()
+}
+
+
+
